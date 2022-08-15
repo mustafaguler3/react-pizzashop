@@ -1,10 +1,21 @@
-import logo from './logo.svg';
+// globalStyles.js
+import { createGlobalStyle } from 'styled-components';
 import './App.css';
+import { Navbar } from "./Navbar/Navbar"
+
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin:0;
+    font-family: 'DynaPuff', cursive;
+  }
+`
 
 function App() {
   return (
     <div>
-      hello
+    <GlobalStyle />
+      <Navbar />     
     </div>
   );
 }
