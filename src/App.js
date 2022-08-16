@@ -10,15 +10,15 @@ import { useOrders } from "./Hooks/useOrders"
 
 function App() {
 
-  const openFood = useState();
+  const openFood = useOpenFood();
   const orders = useOrders();
 
   return (
     <>
       <GlobalStyle />
-      <FoodDialog {...openFood}/>
+      <FoodDialog {...openFood} {...orders}/>
       <Navbar />   
-      <Order/> 
+      <Order {...orders}/> 
       <Banner /> 
       <Menu {...openFood} />
     </>
