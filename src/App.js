@@ -1,25 +1,27 @@
-// globalStyles.js
-import { createGlobalStyle } from 'styled-components';
-import './App.css';
+import React,{ useState } from 'react';
 import { Navbar } from "./Navbar/Navbar"
 import { Banner } from "./Banner/Banner"
 import { Menu } from './Menu/Menu';
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin:0;
-    font-family: 'DynaPuff', cursive;
-  }
-`
+import { FoodDialog } from "./FoodDialog/FoodDialog"
+import { GlobalStyle } from './Styles/GlobalStyle';
+import { Order } from './Order/Order';
+import { useOpenFood } from "./Hooks/useOpenFood"
+import { useOrders } from "./Hooks/useOrders"
 
 function App() {
+
+  const openFood = useState();
+  const orders = useOrders();
+
   return (
-    <div>
-    <GlobalStyle />
-      <Navbar />    
+    <>
+      <GlobalStyle />
+      <FoodDialog {...openFood}/>
+      <Navbar />   
+      <Order/> 
       <Banner /> 
-      <Menu/>
-    </div>
+      <Menu {...openFood} />
+    </>
   );
 }
 

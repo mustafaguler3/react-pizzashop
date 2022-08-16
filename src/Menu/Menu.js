@@ -4,12 +4,10 @@ import {food, foods} from "../Data/FoodData"
 import { Food, FoodGrid, FoodLabel } from "./FoodGrid"
 
 const MenuStyled = styled.div`
-    border: 2px solid;
     height: 1000px;
     margin: 0px 400px 50px 20px
 `
-
-export function Menu(){
+export function Menu({ setOpenFood }){
     return <MenuStyled>
     {Object.entries(food).map(([sectionName,food]) => {
 
@@ -19,7 +17,7 @@ export function Menu(){
         <FoodGrid>
         {food.map(foo => {
             return (               
-                <Food img={foo.img}>
+                <Food img={foo.img} onClick={()=>{setOpenFood(foo)}}>
                     <FoodLabel>{foo.name}</FoodLabel>
                 </Food>                
             )
